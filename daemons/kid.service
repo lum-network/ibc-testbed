@@ -4,7 +4,7 @@ After=network-online.target
 
 [Service]
 User=root
-ExecStart=/root/go/bin/kid start --p2p.laddr tcp://0.0.0.0:46656 --rpc.laddr tcp://127.0.0.1:46657 --address tcp://0.0.0.0:46658 --grpc.address 0.0.0.0:29090 --grpc-web.address 0.0.0.0:29091 --home /root/.ibc-testbed/kid
+ExecStart=/root/go/bin/kid start --p2p.laddr tcp://0.0.0.0:46656 --rpc.laddr tcp://127.0.0.1:46657 --address tcp://0.0.0.0:46658 --grpc.address 0.0.0.0:29090 --home /root/.ibc-testbed/kid
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=4096
