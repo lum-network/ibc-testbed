@@ -1,15 +1,15 @@
 ##
 ## Install base tools
 ##
+
+echo 'Initializing environment...'
+export $(cat .env | xargs)
+
 echo 'Installing build essentials...'
 sudo apt-get install build-essential --yes
 
 echo 'Installing go v1.17.2...'
 wget -q -O - https://git.io/vQhTU | bash -s -- --version 1.17.2
-export GOROOT=$HOME/.go
-export GOPATH=$HOME/go
-export GO111MODULE=on
-export PATH=$PATH:$HOME/.go/bin
 
 ##
 ## Install IBC enabled binaries
