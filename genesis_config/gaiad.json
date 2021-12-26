@@ -30,9 +30,6 @@
             },
             "accounts": []
         },
-        "authz": {
-            "authorization": []
-        },
         "bank": {
             "params": {
                 "send_enabled": [],
@@ -74,9 +71,6 @@
         "evidence": {
             "evidence": []
         },
-        "feegrant": {
-            "allowances": []
-        },
         "genutil": {
             "gen_txs": []
         },
@@ -117,10 +111,7 @@
             "connection_genesis": {
                 "connections": [],
                 "client_connection_paths": [],
-                "next_connection_sequence": "0",
-                "params": {
-                    "max_expected_time_per_block": "30000000000"
-                }
+                "next_connection_sequence": "0"
             },
             "channel_genesis": {
                 "channels": [],
@@ -132,34 +123,6 @@
                 "ack_sequences": [],
                 "next_channel_sequence": "0"
             }
-        },
-        "liquidity": {
-            "params": {
-                "pool_types": [
-                    {
-                        "id": 1,
-                        "name": "StandardLiquidityPool",
-                        "min_reserve_coin_num": 2,
-                        "max_reserve_coin_num": 2,
-                        "description": "Standard liquidity pool with pool price function X/Y, ESPM constraint, and two kinds of reserve coins"
-                    }
-                ],
-                "min_init_deposit_amount": "1000000",
-                "init_pool_coin_mint_amount": "1000000",
-                "max_reserve_coin_amount": "0",
-                "pool_creation_fee": [
-                    {
-                        "denom": "uatom",
-                        "amount": "40000000"
-                    }
-                ],
-                "swap_fee_rate": "0.003000000000000000",
-                "withdraw_fee_rate": "0.000000000000000000",
-                "max_order_amount_ratio": "0.100000000000000000",
-                "unit_batch_height": 1,
-                "circuit_breaker_enabled": false
-            },
-            "pool_records": []
         },
         "mint": {
             "minter": {
@@ -173,11 +136,6 @@
                 "inflation_min": "0.070000000000000000",
                 "goal_bonded": "0.670000000000000000",
                 "blocks_per_year": "6311520"
-            }
-        },
-        "packetfowardmiddleware": {
-            "params": {
-                "fee_percentage": "0.000000000000000000"
             }
         },
         "params": null,
