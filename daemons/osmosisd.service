@@ -4,7 +4,7 @@ After=network-online.target
 
 [Service]
 User=root
-ExecStart=$HOME/go/bin/osmosisd start --p2p.laddr tcp://0.0.0.0:26657 --home $HOME/.ibc-testbed/.osmosisd
+ExecStart=/root/go/bin/osmosisd start --p2p.laddr tcp://0.0.0.0:26657 --home /root/.ibc-testbed/osmosisd
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=4096

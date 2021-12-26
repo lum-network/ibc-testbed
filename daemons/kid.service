@@ -4,7 +4,7 @@ After=network-online.target
 
 [Service]
 User=root
-ExecStart=$HOME/go/bin/kid start --p2p.laddr tcp://0.0.0.0:26659 --home $HOME/.ibc-testbed/.kid
+ExecStart=/root/go/bin/kid start --p2p.laddr tcp://0.0.0.0:26659 --home /root/.ibc-testbed/kid
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=4096

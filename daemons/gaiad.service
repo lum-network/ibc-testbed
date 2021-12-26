@@ -4,7 +4,7 @@ After=network-online.target
 
 [Service]
 User=root
-ExecStart=$HOME/go/bin/gaiad start --p2p.laddr tcp://0.0.0.0:26658 --home $HOME/.ibc-testbed/.gaiad
+ExecStart=/root/go/bin/gaiad start --p2p.laddr tcp://0.0.0.0:26658 --home /root/.ibc-testbed/gaiad
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=4096
