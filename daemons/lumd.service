@@ -1,0 +1,13 @@
+[Unit]
+Description=Lum Network daemon
+After=network-online.target
+
+[Service]
+User=root
+ExecStart=$HOME/go/bin/lumd start --p2p.laddr tcp://0.0.0.0:26656 --home $HOME/.ibc-testbed/.lumd
+Restart=on-failure
+RestartSec=3
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target
