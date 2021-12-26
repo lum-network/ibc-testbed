@@ -16,7 +16,7 @@ SSH to your machine and follow the steps below.
 ### Install git
 
 ```sh
-sudo apt-get install git
+sudo apt-get install git --yes
 ```
 
 ## Clone this repository
