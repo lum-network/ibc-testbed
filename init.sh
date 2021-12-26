@@ -3,7 +3,7 @@
 ##
 
 echo 'Initializing environment...'
-export $(cat .env | xargs)
+export $(cat ibc-testbed/.env | xargs)
 
 echo 'Testbed directory is '$IBC_TESDBED_HOME
 

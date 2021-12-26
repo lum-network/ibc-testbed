@@ -3,7 +3,7 @@
 ##
 
 echo 'Initializing environment...'
-export $(cat .env | xargs)
+export $(cat ibc-testbed/.env | xargs)
 
 echo 'Installing build essentials...'
 sudo apt-get install build-essential --yes
