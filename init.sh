@@ -35,10 +35,10 @@ osmosisd gentx $IBC_KEY 1000000000000uosmo --chain-id=$OSMOSIS_CHAIN_ID --home $
 osmosisd collect-gentxs --home $OSMOSISD_HOME
 
 # echo 'Initializing Ki Network...'
-# cp ibc-testbed/genesis_config/kid.json $KID_HOME/config/genesis.json
-# kid add-genesis-account $(kid keys show $IBC_KEY -a --home $KID_HOME --keyring-backend test) 1000000000000000uxki --home $KID_HOME
-# kid gentx $IBC_KEY 1000000000000uxki --chain-id=$KI_CHAIN_ID --home $KID_HOME --keyring-backend test
-# kid collect-gentxs --home $KID_HOME
+cp ibc-testbed/genesis_config/kid.json $KID_HOME/config/genesis.json
+kid add-genesis-account $(kid keys show $IBC_KEY -a --home $KID_HOME --keyring-backend test) 1000000000000000uxki --home $KID_HOME
+kid gentx $IBC_KEY 1000000000000uxki --chain-id=$KI_CHAIN_ID --home $KID_HOME --keyring-backend test
+kid collect-gentxs --home $KID_HOME
 
 # echo 'Initializing Cosmos Network...'
 cp ibc-testbed/genesis_config/gaiad.json $GAIAD_HOME/config/genesis.json
