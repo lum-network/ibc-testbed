@@ -23,5 +23,5 @@ gaiad keys add ibc-testbed-key --home $IBC_TESDBED_HOME/gaiad --keyring-backend 
 echo 'Initializing networks genesis files...'
 cp ibc-testbed/genesis_config/lumd.json $IBC_TESDBED_HOME/lumd/config/genesis.json
 lumd add-genesis-account $(lumd keys show ibc-testbed-key -a) 1000000000000000ulum --home $IBC_TESDBED_HOME/lumd
-lumd gentx ibc-testbed-key 1000000000000ulum --home $IBC_TESDBED_HOME/lumd
+lumd gentx ibc-testbed-key 1000000000000ulum --chain-id=lum-ibctest-1 --home $IBC_TESDBED_HOME/lumd
 lumd collect-gentxs --home $IBC_TESDBED_HOME/lumd
