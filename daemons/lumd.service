@@ -4,7 +4,7 @@ After=network-online.target
 
 [Service]
 User=root
-ExecStart=/root/go/bin/lumd start --p2p.laddr tcp://0.0.0.0:10001 --rpc.laddr tcp://127.0.0.1:10002  --home /root/.ibc-testbed/lumd
+ExecStart=/root/go/bin/lumd start --p2p.laddr tcp://0.0.0.0:26656 --rpc.laddr tcp://127.0.0.1:26657 --address tcp://0.0.0.0:26658 --grpc.address 0.0.0.0:9090 --grpc-web.address 0.0.0.0:9091 --home /root/.ibc-testbed/lumd
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=4096

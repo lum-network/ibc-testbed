@@ -4,7 +4,7 @@ After=network-online.target
 
 [Service]
 User=root
-ExecStart=/root/go/bin/osmosisd start --p2p.laddr tcp://0.0.0.0:20001 --rpc.laddr tcp://127.0.0.1:20002 --home /root/.ibc-testbed/osmosisd
+ExecStart=/root/go/bin/osmosisd start --p2p.laddr tcp://0.0.0.0:36656 --rpc.laddr tcp://127.0.0.1:36657 --address tcp://0.0.0.0:36658 --grpc.address 0.0.0.0:19090 --grpc-web.address 0.0.0.0:19091 --home /root/.ibc-testbed/osmosisd
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=4096
