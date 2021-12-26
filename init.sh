@@ -41,7 +41,7 @@ osmosisd collect-gentxs --home $OSMOSISD_HOME
 # kid collect-gentxs --home $KID_HOME
 
 # echo 'Initializing Cosmos Network...'
-# cp ibc-testbed/genesis_config/gaiad.json $GAIAD_HOME/config/genesis.json
-# gaiad add-genesis-account $(gaiad keys show $IBC_KEY -a --home $GAIAD_HOME) 1000000000000000uatom --home $GAIAD_HOME
-# gaiad gentx $IBC_KEY 1000000000000uatom --chain-id=$COSMOS_CHAIN_ID --home $GAIAD_HOME
-# gaiad collect-gentxs --home $GAIAD_HOME
+cp ibc-testbed/genesis_config/gaiad.json $GAIAD_HOME/config/genesis.json
+gaiad add-genesis-account $(gaiad keys show $IBC_KEY -a --home $GAIAD_HOME) 1000000000000000uatom --home $GAIAD_HOME
+gaiad gentx $IBC_KEY 1000000000000uatom --chain-id=$COSMOS_CHAIN_ID --home $GAIAD_HOME
+gaiad collect-gentxs --home $GAIAD_HOME
