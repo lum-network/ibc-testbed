@@ -30,6 +30,9 @@
             },
             "accounts": []
         },
+        "authz": {
+            "authorization": []
+        },
         "bank": {
             "params": {
                 "send_enabled": [],
@@ -38,6 +41,10 @@
             "balances": [],
             "supply": [],
             "denom_metadata": []
+        },
+        "bech32ibc": {
+            "nativeHRP": "osmo",
+            "hrpIBCRecords": []
         },
         "capability": {
             "index": "1",
@@ -90,7 +97,7 @@
                     "current_epoch": "0",
                     "current_epoch_start_time": "0001-01-01T00:00:00Z",
                     "epoch_counting_started": false,
-                    "current_epoch_ended": true
+                    "current_epoch_start_height": "0"
                 },
                 {
                     "identifier": "day",
@@ -99,14 +106,25 @@
                     "current_epoch": "0",
                     "current_epoch_start_time": "0001-01-01T00:00:00Z",
                     "epoch_counting_started": false,
-                    "current_epoch_ended": true
+                    "current_epoch_start_height": "0"
                 }
             ]
         },
         "evidence": {
             "evidence": []
         },
-        "gamm": null,
+        "gamm": {
+            "pools": [],
+            "next_pool_number": "1",
+            "params": {
+                "pool_creation_fee": [
+                    {
+                        "denom": "uosmo",
+                        "amount": "1000000000"
+                    }
+                ]
+            }
+        },
         "genutil": {
             "gen_txs": []
         },
@@ -147,7 +165,10 @@
             "connection_genesis": {
                 "connections": [],
                 "client_connection_paths": [],
-                "next_connection_sequence": "0"
+                "next_connection_sequence": "0",
+                "params": {
+                    "max_expected_time_per_block": "30000000000"
+                }
             },
             "channel_genesis": {
                 "channels": [],
@@ -168,6 +189,7 @@
             "lockable_durations": ["1s", "3600s", "10800s", "25200s"]
         },
         "lockup": {
+            "last_lock_id": "0",
             "locks": []
         },
         "mint": {
@@ -234,6 +256,10 @@
                 "send_enabled": true,
                 "receive_enabled": true
             }
+        },
+        "txfees": {
+            "basedenom": "uosmo",
+            "feetokens": []
         },
         "upgrade": {},
         "vesting": {}
