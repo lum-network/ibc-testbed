@@ -5,7 +5,7 @@
 echo 'Initializing environment...'
 . ibc-testbed/.env
 
-echo 'Stopping networks...'
+echo 'Stopping all networks...'
 sudo systemctl stop lumd
 sudo systemctl stop osmosisd
 sudo systemctl stop gaiad

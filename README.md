@@ -37,11 +37,21 @@ sudo sh ibc-testbed/install.sh
 
 This script can be run any number of times to reset and restart the tests.
 
+It will stop the daemon processes, clean up and init all networks and restart the processes.
+
 ```sh
 sh ibc-testbed/init.sh
 ```
 
+## Seed the relayer addresses
+
+```sh
+sh ibc-testbed/seed-relayer.sh
+```
+
 ## Run the tests
 
-TODO:
-
+WIP/TODO:
+- Update genesis configs to have ~60 seconds voting time
+- IBC channel freeze + revive using proposal
+- IBC transfer test pre and post proposal

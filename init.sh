@@ -7,7 +7,7 @@ echo 'Initializing environment...'
 
 echo 'Testbed directory is '$IBC_TESDBED_HOME
 
-echo 'Stopping all networks binaries...'
+echo 'Stopping all networks...'
 sudo systemctl stop lumd
 sudo systemctl stop osmosisd
 sudo systemctl stop kid
@@ -57,3 +57,9 @@ rly keys add $LUM_CHAIN_ID $RLY_KEY --home $RELAYER_HOME
 rly keys add $OSMOSIS_CHAIN_ID $RLY_KEY --home $RELAYER_HOME
 rly keys add $KI_CHAIN_ID $RLY_KEY --home $RELAYER_HOME
 rly keys add $COSMOS_CHAIN_ID $RLY_KEY --home $RELAYER_HOME
+
+echo 'Starting all networks...'
+sudo systemctl start lumd
+sudo systemctl start osmosisd
+sudo systemctl start gaiad
+sudo systemctl start kid
