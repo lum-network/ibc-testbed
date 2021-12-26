@@ -219,7 +219,10 @@
                 "minted_denom": "uosmo"
             },
             "lockable_durations": ["3600s", "10800s", "25200s"],
-            "distr_info": null
+            "distr_info": {
+                "total_weight": "0",
+                "records": []
+            }
         },
         "slashing": {
             "params": {
