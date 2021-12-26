@@ -24,14 +24,14 @@ gaiad keys add $IBC_KEY --home $GAIAD_HOME --keyring-backend test
 
 echo 'Initializing Lum Network...'
 cp ibc-testbed/genesis_config/lumd.json $LUMD_HOME/config/genesis.json
-lumd add-genesis-account $(lumd keys show $IBC_KEY -a --home $LUMD_HOME) 1000000000000000ulum --home $LUMD_HOME
+lumd add-genesis-account $(lumd keys show $IBC_KEY -a --home $LUMD_HOME --keyring-backend test) 1000000000000000ulum --home $LUMD_HOME
 lumd gentx $IBC_KEY 1000000000000ulum --chain-id=$LUM_CHAIN_ID --home $LUMD_HOME
 lumd collect-gentxs --home $LUMD_HOME
 
 echo 'Initializing Osmosis Network...'
 cp ibc-testbed/genesis_config/osmosisd.json $OSMOSISD_HOME/config/genesis.json
-osmosisd add-genesis-account $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME) 1000000000000000uosmo --home $OSMOSISD_HOME
-osmosisd gentx $IBC_KEY 1000000000000uosmo --chain-id=$OSMOSIS_CHAIN_ID --home $OSMOSISD_HOME
+osmosisd add-genesis-account $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) 1000000000000000uosmo --home $OSMOSISD_HOME
+osmosisd gentx $IBC_KEY 1000000000000uosmo --chain-id=$OSMOSIS_CHAIN_ID --home $OSMOSISD_HOME --keyring-backend test
 osmosisd collect-gentxs --home $OSMOSISD_HOME
 
 # echo 'Initializing Ki Network...'
