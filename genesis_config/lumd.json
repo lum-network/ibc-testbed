@@ -1,4 +1,5 @@
 {
+    "genesis_time": "2021-01-01T00:00:00.000000Z",
     "chain_id": "lum-ibctest-1",
     "initial_height": "1",
     "consensus_params": {
@@ -48,6 +49,7 @@
             },
             "beams": []
         },
+        "airdrop": {},
         "capability": {
             "index": "1",
             "owners": []
