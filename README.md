@@ -30,7 +30,7 @@ git clone https://github.com/lum-network/ibc-testbed.git
 This script must only be run once.
 
 ```sh
-sudo sh ibc-testbed/install.sh
+sh ibc-testbed/install.sh
 ```
 
 ## Initialize networks & relayer
