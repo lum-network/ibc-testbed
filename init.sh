@@ -13,8 +13,12 @@ sudo systemctl stop osmosisd
 sudo systemctl stop kid
 sudo systemctl stop gaiad
 
-echo 'Cleaning up testbed directory...'
-rm -rf $IBC_TESDBED_HOME
+echo 'Cleaning up testbed directories...'
+rm -rf $LUMD_HOME
+rm -rf $OSMOSISD_HOME
+rm -rf $KID_HOME
+rm -rf $GAIAD_HOME
+rm -rf $RELAYER_HOME
 
 echo 'Initializing networks keyring...'
 lumd keys add $IBC_KEY --home $LUMD_HOME --keyring-backend test
@@ -45,3 +49,11 @@ cp ibc-testbed/genesis_config/gaiad.json $GAIAD_HOME/config/genesis.json
 gaiad add-genesis-account $(gaiad keys show $IBC_KEY -a --home $GAIAD_HOME --keyring-backend test) 1000000000000000uatom --home $GAIAD_HOME
 gaiad gentx $IBC_KEY 1000000000000uatom --chain-id=$COSMOS_CHAIN_ID --home $GAIAD_HOME --keyring-backend test
 gaiad collect-gentxs --home $GAIAD_HOME
+
+echo 'Initializing relayer...'
+rly config init --home $RELAYER_HOME
+cp ibc-testbed/relayer/config.yaml $RELAYER_HOME/config/config.yaml
+rly keys add lum-ibctest-1 rly-testbed-key --home $RELAYER_HOME
+rly keys add osmosis-ibctest-1 rly-testbed-key --home $RELAYER_HOME
+rly keys add ki-ibctest-1 rly-testbed-key --home $RELAYER_HOME
+rly keys add cosmos-ibctest-1 rly-testbed-key --home $RELAYER_HOME

@@ -33,12 +33,12 @@ This script must only be run once.
 sudo sh ibc-testbed/install.sh
 ```
 
-## Initialize networks
+## Initialize networks & relayer
 
 This script can be run any number of times to reset and restart the tests.
 
 ```sh
-sh ibc-testbed/init-networks.sh
+sh ibc-testbed/init.sh
 ```
 
 ## Run the tests
