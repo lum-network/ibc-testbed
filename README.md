@@ -38,7 +38,7 @@ sudo sh ibc-testbed/install.sh
 This script can be run any number of times to reset and restart the tests.
 
 ```sh
-sh ibc-testbed/init.sh
+sh ibc-testbed/init-networks.sh
 ```
 
 ## Run the tests
