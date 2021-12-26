@@ -43,4 +43,5 @@ sh ibc-testbed/init.sh
 
 ## Run the tests
 
-`WIP`
+TODO:
+
