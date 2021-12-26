@@ -37,8 +37,9 @@ make install
 cd ..
 
 echo 'Installing Gaiad binary...'
-git clone -b v5.0.2 https://github.com/cosmos/gaia
+git clone https://github.com/cosmos/gaia
 cd gaia
+git checkout v5.0.2
 make install
 cd ..
 
