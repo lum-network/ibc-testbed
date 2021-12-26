@@ -3,7 +3,7 @@
 ##
 
 echo 'Initializing environment...'
-sh ibc-testbed/env.sh
+. ibc-testbed/.env
 
 echo 'Installing build essentials...'
 sudo apt-get install build-essential --yes

@@ -3,7 +3,7 @@
 ##
 
 echo 'Initializing environment...'
-sh ibc-testbed/env.sh
+. ibc-testbed/.env
 
 echo 'Testbed directory is '$IBC_TESDBED_HOME
 
