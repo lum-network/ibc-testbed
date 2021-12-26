@@ -53,3 +53,13 @@ sudo systemctl enable osmosisd
 sudo systemctl enable lumd
 sudo systemctl enable kid
 sudo systemctl enable gaiad
+
+##
+## Install go relayer
+##
+
+git clone https://github.com/cosmos/relayer.git
+cd relayer
+git checkout v1.0.0
+make install
+cd ..
