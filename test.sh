@@ -6,13 +6,13 @@ echo 'Initializing environment...'
 . ibc-testbed/.env
 
 echo 'Initializing networks...'
-sh init.sh
+sh ibc-testbed/init.sh
 
 echo 'Starting networks...'
-sh run-networks.sh
+sh ibc-testbed/run-networks.sh
 
 echo 'Seeding relayer wallets...'
-sh seed-relayer.sh
+sh ibc-testbed/seed-relayer.sh
 
 echo '== TEST SUITE - START =='
 
@@ -23,4 +23,4 @@ echo '== TEST SUITE - START =='
 echo '== TEST SUITE - END =='
 
 echo 'Stopping networks...'
-sh stop-networks.sh
+sh ibc-testbed/stop-networks.sh
