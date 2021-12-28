@@ -2,17 +2,28 @@
 ## Test suite
 ##
 
-echo 'Initializing environment...'
+echo '[INFO] Initializing environment...'
 . ibc-testbed/.env
 
-echo 'Initializing networks...'
-sh ibc-testbed/init.sh
+echo '[INFO] Initializing networks...'
+if sh ibc-testbed/init.sh &>/dev/null; then
+    echo '[ERROR] Failed to initialize networks'
+fi
 
 echo 'Starting networks...'
-sh ibc-testbed/run-networks.sh
+sh ibc-testbed/run-networks.sh &>/dev/null
+
+echo 'Waiting for networks to be up and running...'
+if sh ibc-testbed/wait-networks.sh &>/dev/null; then
+    echo '[ERROR] Waiting for networks timed out'
+    sh ibc-testbed/stop-networks.sh &>/dev/null
+fi
 
 echo 'Seeding relayer wallets...'
-sh ibc-testbed/seed-relayer.sh
+if sh ibc-testbed/seed-relayer.sh &>/dev/null; then
+    echo '[ERROR] Relayer wallets seed failed'
+    sh ibc-testbed/stop-networks.sh &>/dev/null
+fi
 
 echo '== TEST SUITE - START =='
 
@@ -23,4 +34,4 @@ echo '== TEST SUITE - START =='
 echo '== TEST SUITE - END =='
 
 echo 'Stopping networks...'
-sh ibc-testbed/stop-networks.sh
+sh ibc-testbed/stop-networks.sh &>/dev/null
