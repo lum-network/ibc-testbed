@@ -9,26 +9,26 @@ chains:
     account-prefix: lum
     gas-adjustment: 2.0
     gas-prices: 0.00001ulum
-    trusting-period: 60s
+    trusting-period: 300s
   - key: rly-testbed-key
     chain-id: osmosis-ibctest-1
     rpc-addr: http://127.0.0.1:36657
     account-prefix: osmo
     gas-adjustment: 2.0
     gas-prices: 0.00001uosmo
-    trusting-period: 60s
+    trusting-period: 300s
   - key: rly-testbed-key
     chain-id: ki-ibctest-1
     rpc-addr: http://127.0.0.1:46657
     account-prefix: ki
     gas-adjustment: 2.0
     gas-prices: 0.00001uxki
-    trusting-period: 60s
+    trusting-period: 300s
   - key: rly-testbed-key
     chain-id: cosmos-ibctest-1
     rpc-addr: http://127.0.0.1:56657
     account-prefix: cosmos
     gas-adjustment: 2.0
     gas-prices: 0.00001uatom
-    trusting-period: 60s
+    trusting-period: 300s
 paths: {}

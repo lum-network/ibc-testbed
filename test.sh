@@ -40,7 +40,7 @@ rly paths generate lum-ibctest-1 osmosis-ibctest-1 lum-osmosis --home $RELAYER_H
 rly tx clients lum-osmosis --home $RELAYER_HOME
 rly tx connection lum-osmosis --home $RELAYER_HOME
 rly tx link lum-osmosis --home $RELAYER_HOME
-rly start lum-osmosis --time-threshold 30s --home $RELAYER_HOME
+rly start lum-osmosis --time-threshold 60s --home $RELAYER_HOME
 
 ## TODO
 ##
