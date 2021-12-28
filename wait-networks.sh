@@ -4,27 +4,27 @@
 
 . ibc-testbed/.env
 
-COUNT=30
-while [ $COUNT -ge 0 ]; do
-    OK=0
+i=3
+while [ $i -ge 0 ]; do
+    ok=0
     if lumd status --node $LUM_RPC &>/dev/null; then
-        ((OK++))
+        let "ok++"
     fi
     if osmosisd status --node $OSMOSIS_RPC &>/dev/null; then
-        ((OK++))
+        let "ok++"
     fi
     if kid status --node $KID_RPC &>/dev/null; then
-        ((OK++))
+        let "ok++"
     fi
     if gaiad status --node $COSMOS_RPC &>/dev/null; then
-        ((OK++))
+        let "ok++"
     fi
 
-    if [[ $OK == 4 ]]; then
+    if [[ $ok == 4 ]]; then
         exit 0
     fi
 
-    ((COUNT--))
+    let "i--"
     sleep 1
 done
 
