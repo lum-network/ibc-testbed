@@ -72,7 +72,7 @@ fi
 
 echo '[INFO] Stopping Lum <> Osmosis relayer and waiting for the client to expire...'
 sudo systemctl stop rly-lum-osmosis
-sleep 120
+sleep 180
 
 echo '[INFO] Transferring coins from Lum to Osmosis (should NOT work)...'
 if rly tx transfer $LUM_CHAIN_ID $OSMOSIS_CHAIN_ID 1ulum $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then

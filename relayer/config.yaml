@@ -16,7 +16,7 @@ chains:
     account-prefix: osmo
     gas-adjustment: 2.0
     gas-prices: 0.00001uosmo
-    trusting-period: 120s
+    trusting-period: 180s
   - key: rly-testbed-key
     chain-id: ki-ibctest-1
     rpc-addr: http://127.0.0.1:46657
