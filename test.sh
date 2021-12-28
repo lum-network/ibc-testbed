@@ -17,7 +17,7 @@ echo '[INFO] Starting networks...'
 sh ibc-testbed/run-networks.sh >/dev/null 2>&1
 
 echo '[INFO] Waiting for networks to be up and running...'
-if sh ibc-testbed/wait-networks.sh &>/dev/null 2>&1; then
+if sh ibc-testbed/wait-networks.sh >/dev/null 2>&1; then
     echo '[INFO] Networks are up and running'
 else
     echo '[ERROR] Waiting for networks timed out'
