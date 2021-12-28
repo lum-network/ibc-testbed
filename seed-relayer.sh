@@ -2,7 +2,6 @@
 ## Seed relayer wallets
 ##
 
-echo 'Initializing environment...'
 . ibc-testbed/.env
 
 echo 'Sending 1000 OSMO to relayer...'

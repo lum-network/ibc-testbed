@@ -2,7 +2,6 @@
 ## Initialize all networks
 ##
 
-echo 'Initializing environment...'
 . ibc-testbed/.env
 
 echo 'Testbed directory is '$IBC_TESDBED_HOME
@@ -57,9 +56,3 @@ rly keys add $LUM_CHAIN_ID $RLY_KEY --home $RELAYER_HOME
 rly keys add $OSMOSIS_CHAIN_ID $RLY_KEY --home $RELAYER_HOME
 rly keys add $KI_CHAIN_ID $RLY_KEY --home $RELAYER_HOME
 rly keys add $COSMOS_CHAIN_ID $RLY_KEY --home $RELAYER_HOME
-
-echo 'Starting all networks...'
-sudo systemctl start lumd
-sudo systemctl start osmosisd
-sudo systemctl start gaiad
-sudo systemctl start kid
