@@ -118,7 +118,7 @@ else
 fi
 
 echo '[INFO] Relay packets manually...'
-if rly tx relay-packets lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1 && rly tx relay-packets ki-osmosis --home $RELAYER_HOME >/dev/null 2>&1 && rly tx relay-packets cosmos-osmosis --home $RELAYER_HOME >/dev/null 2>&1 ; then
+if rly tx relay-packets ki-osmosis --home $RELAYER_HOME >/dev/null 2>&1 && rly tx relay-packets cosmos-osmosis --home $RELAYER_HOME >/dev/null 2>&1 ; then
     echo "[INFO] Relaying done"
 else
     echo "[ERROR] Relaying failed"
@@ -152,6 +152,15 @@ if rly tx transfer $COSMOS_CHAIN_ID $OSMOSIS_CHAIN_ID 1uatom $(osmosisd keys sho
     echo "[INFO] Transaction accepted"
 else
     echo "[ERROR] Transaction rejected"
+    sh ibc-testbed/stop-daemons.sh >/dev/null 2>&1
+    exit 1
+fi
+
+echo '[INFO] Relay packets manually...'
+if rly tx relay-packets lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1 && rly tx relay-packets ki-osmosis --home $RELAYER_HOME >/dev/null 2>&1 && rly tx relay-packets cosmos-osmosis --home $RELAYER_HOME >/dev/null 2>&1 ; then
+    echo "[INFO] Relaying done"
+else
+    echo "[ERROR] Relaying failed"
     sh ibc-testbed/stop-daemons.sh >/dev/null 2>&1
     exit 1
 fi
