@@ -36,6 +36,7 @@ fi
 
 echo '== TEST SUITE - START =='
 
+rly paths generate lum-ibctest-1 osmosis-ibctest-1 lum-osmosis --home $RELAYER_HOME
 rly tx clients lum-osmosis --home $RELAYER_HOME
 rly tx connection lum-osmosis --home $RELAYER_HOME
 rly tx link lum-osmosis --home $RELAYER_HOME

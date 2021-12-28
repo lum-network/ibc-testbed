@@ -31,43 +31,4 @@ chains:
     gas-adjustment: 2.0
     gas-prices: 0.00001uatom
     trusting-period: 60s
-paths:
-  lum-osmosis:
-    src:
-      chain-id: lum-ibctest-1
-      port-id: transfer
-      order: UNORDERED
-      version: ics20-1
-    dst:
-      chain-id: osmosis-ibctest-1
-      port-id: transfer
-      order: UNORDERED
-      version: ics20-1
-    strategy:
-      type: naive
-  cosmos-osmosis:
-    src:
-      chain-id: cosmos-ibctest-1
-      port-id: transfer
-      order: UNORDERED
-      version: ics20-1
-    dst:
-      chain-id: osmosis-ibctest-1
-      port-id: transfer
-      order: UNORDERED
-      version: ics20-1
-    strategy:
-      type: naive
-  ki-osmosis:
-    src:
-      chain-id: ki-ibctest-1
-      port-id: transfer
-      order: UNORDERED
-      version: ics20-1
-    dst:
-      chain-id: osmosis-ibctest-1
-      port-id: transfer
-      order: UNORDERED
-      version: ics20-1
-    strategy:
-      type: naive
+paths: {}
