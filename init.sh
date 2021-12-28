@@ -6,11 +6,7 @@
 
 echo 'Testbed directory is '$IBC_TESDBED_HOME
 
-echo 'Stopping all networks...'
-sudo systemctl stop lumd
-sudo systemctl stop osmosisd
-sudo systemctl stop kid
-sudo systemctl stop gaiad
+sh ibc-testbed/stop-daemons.sh
 
 echo 'Cleaning up testbed directories...'
 rm -rf $LUMD_HOME

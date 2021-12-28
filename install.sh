@@ -53,6 +53,9 @@ sudo systemctl enable osmosisd
 sudo systemctl enable lumd
 sudo systemctl enable kid
 sudo systemctl enable gaiad
+sudo systemctl enable rly-lum-osmosis
+sudo systemctl enable rly-ki-osmosis
+sudo systemctl enable rly-cosmos-osmosis
 
 ##
 ## Install go relayer

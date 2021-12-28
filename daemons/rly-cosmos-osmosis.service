@@ -1,0 +1,13 @@
+[Unit]
+Description=Relay Cosmos Osmosis daemon
+After=network-online.target
+
+[Service]
+User=root
+ExecStart=/root/go/bin/rly start cosmos-osmosis --time-threshold 30s --home /root/.ibc-testbed/relayer
+Restart=on-failure
+RestartSec=3
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target
