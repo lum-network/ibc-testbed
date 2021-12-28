@@ -13,7 +13,7 @@ while [ $i -ge 0 ]; do
     if osmosisd status --node $OSMOSIS_RPC &>/dev/null; then
         ok=$((ok + 1))
     fi
-    if kid status --node $KID_RPC &>/dev/null; then
+    if kid status --node $KI_RPC &>/dev/null; then
         ok=$((ok + 1))
     fi
     if gaiad status --node $COSMOS_RPC &>/dev/null; then
