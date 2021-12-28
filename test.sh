@@ -36,7 +36,11 @@ fi
 
 echo '== TEST SUITE - START =='
 
-##
+rly tx clients lum-osmosis --home $RELAYER_HOME
+rly tx connection lum-osmosis --home $RELAYER_HOME
+rly tx link lum-osmosis --home $RELAYER_HOME
+rly start lum-osmosis --time-threshold 30s --home $RELAYER_HOME
+
 ## TODO
 ##
 
