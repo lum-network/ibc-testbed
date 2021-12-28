@@ -35,13 +35,13 @@ else
 fi
 
 echo '[INFO] Initializing relayers (will take a while)...'
-# if sh ibc-testbed/init-relayers.sh >/dev/null 2>&1; then
-#     echo '[INFO] Relayers initialization succeeded'
-# else
-#     echo '[ERROR] Relayers initialization failed'
-#     sh ibc-testbed/stop-daemons.sh >/dev/null 2>&1
-#     exit 1
-# fi
+if sh ibc-testbed/init-relayers.sh >/dev/null 2>&1; then
+    echo '[INFO] Relayers initialization succeeded'
+else
+    echo '[ERROR] Relayers initialization failed'
+    sh ibc-testbed/stop-daemons.sh >/dev/null 2>&1
+    exit 1
+fi
 
 echo '[INFO] Transferring coins from Lum to Osmosis (should work)...'
 if lumd tx ibc-transfer transfer transfer channel-0 $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) 1000ulum --from $IBC_KEY --keyring-backend test --home $LUMD_HOME --chain-id $LUM_CHAIN_ID --output text --yes | grep "code: 0"; then
@@ -71,8 +71,8 @@ else
 fi
 
 echo '[INFO] Stopping Lum <> Osmosis relayer and waiting for the client to expire...'
-# sudo systemctl stop rly-lum-osmosis
-# sleep 120
+sudo systemctl stop rly-lum-osmosis
+sleep 120
 
 echo '[INFO] Transferring coins from Lum to Osmosis (should NOT work)...'
 if lumd tx ibc-transfer transfer transfer channel-0 $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) 1000ulum --from $IBC_KEY --keyring-backend test --home $LUMD_HOME --chain-id $LUM_CHAIN_ID --output text --yes | grep "code: 0"; then
