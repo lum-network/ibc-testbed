@@ -70,9 +70,25 @@ else
     exit 1
 fi
 
-echo '[INFO] Stopping Lum <> Osmosis relayer and waiting for the client to expire...'
-sudo systemctl stop rly-lum-osmosis
-sleep 180
+echo '[INFO] Relay packets manually...'
+if rly tx relay-packets lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1 && rly tx relay-packets ki-osmosis --home $RELAYER_HOME >/dev/null 2>&1 && rly tx relay-packets cosmos-osmosis --home $RELAYER_HOME >/dev/null 2>&1 ; then
+    echo "[INFO] Relaying done"
+else
+    echo "[ERROR] Relaying failed"
+    sh ibc-testbed/stop-daemons.sh >/dev/null 2>&1
+    exit 1
+fi
+
+echo '[INFO] Waiting for the Lum <> Osmosis client to expire...'
+sleep 60
+rly tx update-clients ki-osmosis --home $RELAYER_HOME
+rly tx update-clients cosmos-osmosis --home $RELAYER_HOME
+sleep 60
+rly tx update-clients ki-osmosis --home $RELAYER_HOME
+rly tx update-clients cosmos-osmosis --home $RELAYER_HOME
+sleep 60
+rly tx update-clients ki-osmosis --home $RELAYER_HOME
+rly tx update-clients cosmos-osmosis --home $RELAYER_HOME
 
 echo '[INFO] Transferring coins from Lum to Osmosis (should NOT work)...'
 if rly tx transfer $LUM_CHAIN_ID $OSMOSIS_CHAIN_ID 1ulum $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
@@ -97,6 +113,15 @@ if rly tx transfer $COSMOS_CHAIN_ID $OSMOSIS_CHAIN_ID 1uatom $(osmosisd keys sho
     echo "[INFO] Transaction accepted"
 else
     echo "[ERROR] Transaction rejected"
+    sh ibc-testbed/stop-daemons.sh >/dev/null 2>&1
+    exit 1
+fi
+
+echo '[INFO] Relay packets manually...'
+if rly tx relay-packets lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1 && rly tx relay-packets ki-osmosis --home $RELAYER_HOME >/dev/null 2>&1 && rly tx relay-packets cosmos-osmosis --home $RELAYER_HOME >/dev/null 2>&1 ; then
+    echo "[INFO] Relaying done"
+else
+    echo "[ERROR] Relaying failed"
     sh ibc-testbed/stop-daemons.sh >/dev/null 2>&1
     exit 1
 fi
