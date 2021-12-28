@@ -20,7 +20,7 @@ while [ $i -ge 0 ]; do
         ok=$((ok + 1))
     fi
 
-    if [[ $ok == 4 ]]; then
+    if [ "$ok" = "4" ]; then
         exit 0
     fi
 
