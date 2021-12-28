@@ -44,7 +44,7 @@ else
 fi
 
 echo '[INFO] Transferring coins from Lum to Osmosis (should work)...'
-if lumd tx ibc-transfer transfer transfer channel-0 $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) 1000ulum --from $IBC_KEY --keyring-backend test --home $LUMD_HOME --chain-id $LUM_CHAIN_ID --node $LUM_RPC --output text --yes | grep "code: 0"; then
+if rly tx transfer $LUM_CHAIN_ID $OSMOSIS_CHAIN_ID 1ulum $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
     echo "[INFO] Transaction accepted"
 else
     echo "[ERROR] Transaction rejected"
@@ -53,7 +53,7 @@ else
 fi
 
 echo '[INFO] Transferring coins from Ki to Osmosis (should work)...'
-if kid tx ibc-transfer transfer transfer channel-0 $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) 1000uxki --from $IBC_KEY --keyring-backend test --home $KID_HOME --chain-id $KI_CHAIN_ID --node $KI_RPC --output text --yes | grep "code: 0"; then
+if rly tx transfer $KI_CHAIN_ID $OSMOSIS_CHAIN_ID 1uxki $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path ki-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
     echo "[INFO] Transaction accepted"
 else
     echo "[ERROR] Transaction rejected"
@@ -62,7 +62,7 @@ else
 fi
 
 echo '[INFO] Transferring coins from Cosmos to Osmosis (should work)...'
-if gaiad tx ibc-transfer transfer transfer channel-0 $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) 1000uatom --from $IBC_KEY --keyring-backend test --home $GAIAD_HOME --chain-id $COSMOS_CHAIN_ID --node $COSMOS_RPC --output text --yes | grep "code: 0"; then
+if rly tx transfer $COSMOS_CHAIN_ID $OSMOSIS_CHAIN_ID 1uatom $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path cosmos-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
     echo "[INFO] Transaction accepted"
 else
     echo "[ERROR] Transaction rejected"
@@ -75,7 +75,7 @@ sudo systemctl stop rly-lum-osmosis
 sleep 120
 
 echo '[INFO] Transferring coins from Lum to Osmosis (should NOT work)...'
-if lumd tx ibc-transfer transfer transfer channel-0 $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) 1000ulum --from $IBC_KEY --keyring-backend test --home $LUMD_HOME --chain-id $LUM_CHAIN_ID --node $LUM_RPC --output text --yes | grep "code: 0"; then
+if rly tx transfer $LUM_CHAIN_ID $OSMOSIS_CHAIN_ID 1ulum $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
     echo "[ERROR] Transaction accepted"
     sh ibc-testbed/stop-daemons.sh >/dev/null 2>&1
     exit 1
@@ -84,7 +84,7 @@ else
 fi
 
 echo '[INFO] Transferring coins from Ki to Osmosis (should work)...'
-if kid tx ibc-transfer transfer transfer channel-0 $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) 1000uxki --from $IBC_KEY --keyring-backend test --home $KID_HOME --chain-id $KI_CHAIN_ID --node $KI_RPC --output text --yes | grep "code: 0"; then
+if rly tx transfer $KI_CHAIN_ID $OSMOSIS_CHAIN_ID 1uxki $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path ki-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
     echo "[INFO] Transaction accepted"
 else
     echo "[ERROR] Transaction rejected"
@@ -93,7 +93,7 @@ else
 fi
 
 echo '[INFO] Transferring coins from Cosmos to Osmosis (should work)...'
-if gaiad tx ibc-transfer transfer transfer channel-0 $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) 1000uatom --from $IBC_KEY --keyring-backend test --home $GAIAD_HOME --chain-id $COSMOS_CHAIN_ID --node $COSMOS_RPC --output text --yes | grep "code: 0"; then
+if rly tx transfer $COSMOS_CHAIN_ID $OSMOSIS_CHAIN_ID 1uatom $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path cosmos-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
     echo "[INFO] Transaction accepted"
 else
     echo "[ERROR] Transaction rejected"
@@ -105,7 +105,7 @@ echo '[INFO] Running gov proposal on Osmosis to revive Lum <> Osmosis relayer...
 #TODO - gov prop + vote
 
 echo '[INFO] Transferring coins from Lum to Osmosis (should work)...'
-if lumd tx ibc-transfer transfer transfer channel-0 $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) 99999ulum --from $IBC_KEY --keyring-backend test --home $LUMD_HOME --chain-id $LUM_CHAIN_ID --node $LUM_RPC --output text --yes | grep "code: 0"; then
+if rly tx transfer $LUM_CHAIN_ID $OSMOSIS_CHAIN_ID 1ulum $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
     echo "[INFO] Transaction accepted"
 else
     echo "[ERROR] Transaction rejected"
@@ -114,7 +114,7 @@ else
 fi
 
 echo '[INFO] Transferring coins from Ki to Osmosis (should work)...'
-if kid tx ibc-transfer transfer transfer channel-0 $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) 99999uxki --from $IBC_KEY --keyring-backend test --home $KID_HOME --chain-id $KI_CHAIN_ID --node $KI_RPC --output text --yes | grep "code: 0"; then
+if rly tx transfer $KI_CHAIN_ID $OSMOSIS_CHAIN_ID 1uxki $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path ki-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
     echo "[INFO] Transaction accepted"
 else
     echo "[ERROR] Transaction rejected"
@@ -123,7 +123,7 @@ else
 fi
 
 echo '[INFO] Transferring coins from Cosmos to Osmosis (should work)...'
-if gaiad tx ibc-transfer transfer transfer channel-0 $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) 99999uatom --from $IBC_KEY --keyring-backend test --home $GAIAD_HOME --chain-id $COSMOS_CHAIN_ID --node $COSMOS_RPC --output text --yes | grep "code: 0"; then
+if rly tx transfer $COSMOS_CHAIN_ID $OSMOSIS_CHAIN_ID 1uatom $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path cosmos-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
     echo "[INFO] Transaction accepted"
 else
     echo "[ERROR] Transaction rejected"
