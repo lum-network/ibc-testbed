@@ -45,7 +45,7 @@ gaiad add-genesis-account $(gaiad keys show $IBC_KEY -a --home $GAIAD_HOME --key
 gaiad gentx $IBC_KEY 1000000000000uatom --chain-id=$COSMOS_CHAIN_ID --home $GAIAD_HOME --keyring-backend test
 gaiad collect-gentxs --home $GAIAD_HOME
 
-echo 'Initializing relayer...'
+echo 'Initializing relayer confg and wallets...'
 rly config init --home $RELAYER_HOME
 cp ibc-testbed/relayer/config.yaml $RELAYER_HOME/config/config.yaml
 rly keys add $LUM_CHAIN_ID $RLY_KEY --home $RELAYER_HOME

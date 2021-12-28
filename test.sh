@@ -6,7 +6,7 @@ echo '[INFO] Initializing environment...'
 . ibc-testbed/.env
 
 echo '[INFO] Initializing networks...'
-if sh ibc-testbed/init.sh >/dev/null 2>&1; then
+if sh ibc-testbed/init-networks.sh >/dev/null 2>&1; then
     echo '[INFO] Network initialized with success'
 else
     echo '[ERROR] Failed to initialize networks'
