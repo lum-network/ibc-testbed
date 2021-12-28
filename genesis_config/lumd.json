@@ -109,13 +109,13 @@
                 "min_deposit": [
                     {
                         "denom": "ulum",
-                        "amount": "100000000000"
+                        "amount": "1"
                     }
                 ],
-                "max_deposit_period": "259200s"
+                "max_deposit_period": "60s"
             },
             "voting_params": {
-                "voting_period": "259200s"
+                "voting_period": "60s"
             },
             "tally_params": {
                 "quorum": "0.334000000000000000",

@@ -83,13 +83,13 @@
                 "min_deposit": [
                     {
                         "denom": "uatom",
-                        "amount": "10000000"
+                        "amount": "1"
                     }
                 ],
-                "max_deposit_period": "172800s"
+                "max_deposit_period": "60s"
             },
             "voting_params": {
-                "voting_period": "172800s"
+                "voting_period": "60s"
             },
             "tally_params": {
                 "quorum": "0.334000000000000000",
