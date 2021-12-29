@@ -16,19 +16,19 @@ chains:
     account-prefix: osmo
     gas-adjustment: 2.0
     gas-prices: 0.00001uosmo
-    trusting-period: 3600s
+    trusting-period: 36000s
   - key: rly-testbed-key
     chain-id: ki-ibctest-1
     rpc-addr: http://127.0.0.1:46657
     account-prefix: ki
     gas-adjustment: 2.0
     gas-prices: 0.00001uxki
-    trusting-period: 3600s
+    trusting-period: 36000s
   - key: rly-testbed-key
     chain-id: cosmos-ibctest-1
     rpc-addr: http://127.0.0.1:56657
     account-prefix: cosmos
     gas-adjustment: 2.0
     gas-prices: 0.00001uatom
-    trusting-period: 3600s
+    trusting-period: 36000s
 paths: {}

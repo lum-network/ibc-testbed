@@ -39,18 +39,14 @@ else
 fi
 
 echo '[INFO] Waiting for the Lum <> Osmosis client to expire...'
-rly tx update-clients ki-osmosis --home $RELAYER_HOME
-rly tx update-clients cosmos-osmosis --home $RELAYER_HOME
 sleep 300
-rly tx update-clients ki-osmosis --home $RELAYER_HOME
-rly tx update-clients cosmos-osmosis --home $RELAYER_HOME
 
 echo '[INFO] Transferring coins from Lum to Osmosis (should NOT work)...'
 if rly tx transfer $LUM_CHAIN_ID $OSMOSIS_CHAIN_ID 1ulum $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
-    echo "[ERROR] Transaction accepted"
-    exit 1
+    echo "[INFO] Transaction accepted"
 else
-    echo "[INFO] Transaction rejected as expected"
+    echo "[ERROR] Transaction rejected"
+    exit 1
 fi
 
 echo '[INFO] Transferring coins from Ki to Osmosis (should work)...'
@@ -69,6 +65,14 @@ else
     exit 1
 fi
 
+echo '[INFO] Relay packets between Lum <> Osmosis should not work...'
+if rly tx relay-packets lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
+    echo "[ERROR] Relaying has been accepted but should not have been"
+    exit 1
+else
+    echo "[INFO] Relaying rejected as expected)"
+fi
+
 echo '[INFO] Relay packets manually...'
 if rly tx relay-packets ki-osmosis --home $RELAYER_HOME >/dev/null 2>&1 && rly tx relay-packets cosmos-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
     echo "[INFO] Relaying done"
@@ -77,8 +81,18 @@ else
     exit 1
 fi
 
+echo '[INFO] Creating and updating new substitute client to replace the expired one...'
+rly tx raw client $OSMOSIS_CHAIN_ID $LUM_CHAIN_ID 07-tendermint-3 --home $RELAYER_HOME
+sleep 5
+rly tx raw update-client $OSMOSIS_CHAIN_ID $LUM_CHAIN_ID 07-tendermint-3 --home $RELAYER_HOME
+
 echo '[INFO] Running gov proposal on Osmosis to revive Lum <> Osmosis relayer...'
-#TODO - gov prop + vote
+osmosisd tx gov submit-proposal update-client 07-tendermint-0 07-tendermint-3 --deposit 1000uosmo --title "update" --description "upt clt" --from $IBC_KEY --home $OSMOSISD_HOME --keyring-backend test --broadcast-mode block --chain-id $OSMOSIS_CHAIN_ID --node $OSMOSIS_RPC --yes
+osmosisd tx gov vote 1 yes --from $IBC_KEY --home $OSMOSISD_HOME --keyring-backend test --broadcast-mode block --chain-id $OSMOSIS_CHAIN_ID --node $OSMOSIS_RPC --yes
+sleep $GOV_VOTE_DURATION
+
+echo '[INFO] Updating substitute client...'
+rly tx raw update-client $OSMOSIS_CHAIN_ID $LUM_CHAIN_ID 07-tendermint-3 --home $RELAYER_HOME
 
 echo '[INFO] Transferring coins from Lum to Osmosis (should work)...'
 if rly tx transfer $LUM_CHAIN_ID $OSMOSIS_CHAIN_ID 1ulum $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
