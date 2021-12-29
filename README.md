@@ -4,6 +4,18 @@ This repository contains scripts and files required to run a full IBC test run.
 
 The goal of this repository is to provide a testbed for IBC integrations and multiple networks.
 
+## Basic features
+
+-   Launch 4 networks (Tendermint & Cosmos SDK based)
+    -   Lum Network
+    -   Osmosis
+    -   Cosmos Hub
+    -   Ki chain
+-   Create IBC channels to Osmosis
+    -   Lum <> Osmosis
+    -   Ki <> Osmosis
+    -   Cosmos <> Osmosis
+
 ## Project structure
 
 -   [daemons](./daemons)
