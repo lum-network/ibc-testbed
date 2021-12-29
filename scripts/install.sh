@@ -60,7 +60,7 @@ cd ..
 ##
 
 echo '[INFO] Installing networks daemons...'
-sudo cp ./ibc-testbed/daemons/* /etc/systemd/system/.
+sudo cp ./daemons/* /etc/systemd/system/.
 sudo systemctl daemon-reload
 sudo systemctl enable osmosisd
 sudo systemctl enable lumd
