@@ -38,8 +38,8 @@ else
     exit 1
 fi
 
-echo '[INFO] Waiting for the Lum <> Osmosis client to expire...'
-sleep 300
+echo '[INFO] Waiting ~6min for the Lum <> Osmosis client to expire...'
+sleep 360
 
 echo '[INFO] Transferring coins from Lum to Osmosis (should NOT work)...'
 if rly tx transfer $LUM_CHAIN_ID $OSMOSIS_CHAIN_ID 1ulum $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
@@ -87,7 +87,7 @@ sleep 5
 rly tx raw update-client $OSMOSIS_CHAIN_ID $LUM_CHAIN_ID 07-tendermint-3 --home $RELAYER_HOME
 
 echo '[INFO] Running gov proposal on Osmosis to revive Lum <> Osmosis relayer...'
-osmosisd tx gov submit-proposal update-client 07-tendermint-0 07-tendermint-3 --deposit 1000uosmo --title "update" --description "upt clt" --from $IBC_KEY --home $OSMOSISD_HOME --keyring-backend test --broadcast-mode block --chain-id $OSMOSIS_CHAIN_ID --node $OSMOSIS_RPC --yes
+osmosisd tx gov submit-proposal update-client 07-tendermint-2 07-tendermint-3 --deposit 1000uosmo --title "update" --description "upt clt" --from $IBC_KEY --home $OSMOSISD_HOME --keyring-backend test --broadcast-mode block --chain-id $OSMOSIS_CHAIN_ID --node $OSMOSIS_RPC --yes
 osmosisd tx gov vote 1 yes --from $IBC_KEY --home $OSMOSISD_HOME --keyring-backend test --broadcast-mode block --chain-id $OSMOSIS_CHAIN_ID --node $OSMOSIS_RPC --yes
 sleep $GOV_VOTE_DURATION
 
@@ -126,5 +126,5 @@ else
     exit 1
 fi
 
-echo '[DEBUG] Dumping test wallets'
+echo '[DEBUG] Dumping test wallets (Osmosis wallet should have 3 ibc denom with 3 coins each)'
 sh scripts/dump-wallets.sh

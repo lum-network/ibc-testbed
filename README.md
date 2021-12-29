@@ -30,7 +30,7 @@ The goal of this repository is to provide a testbed for IBC integrations and mul
 
 SSH to your machine and follow the steps below.
 
-*Note: it is recommended to use a clean test machine.*
+_Note: it is recommended to use a clean test machine._
 
 ### Install git
 
@@ -76,6 +76,16 @@ The [run.sh](./run.sh) script does the following:
 -   Start networks and relayers
 -   Run the requested test suite
 -   Stop networks daemons
+
+## Debugging
+
+To ease debugging you can set all the [env](./.env) variable for your current sheel by using
+
+```sh
+set -a; source .env; set +a
+```
+
+Which will let you basically copy commands from the scripts and use all the pre-set paths, urls etc...
 
 ## Available tests
 
