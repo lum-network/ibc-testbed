@@ -2,15 +2,15 @@
 ## Wait for networks to be up and running by querying block 1
 ##
 
-. ibc-testbed/.env
+. .env
 
-i=30
+i=60
 while [ $i -ge 0 ]; do
     ok=0
-    if lumd query block 1 --node $LUM_RPC >/dev/null 2>&1; then
+    if osmosisd query block 1 --node $OSMOSIS_RPC >/dev/null 2>&1; then
         ok=$((ok + 1))
     fi
-    if osmosisd query block 1 --node $OSMOSIS_RPC >/dev/null 2>&1; then
+    if lumd query block 1 --node $LUM_RPC >/dev/null 2>&1; then
         ok=$((ok + 1))
     fi
     if kid query block 1 --node $KI_RPC >/dev/null 2>&1; then
