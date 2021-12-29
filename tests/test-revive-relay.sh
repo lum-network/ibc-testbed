@@ -82,13 +82,15 @@ else
 fi
 
 echo '[INFO] Creating and updating new substitute client to replace the expired one...'
-rly tx raw client $OSMOSIS_CHAIN_ID $LUM_CHAIN_ID 07-tendermint-3 --home $RELAYER_HOME
+rly tx raw client $OSMOSIS_CHAIN_ID $LUM_CHAIN_ID 07-tendermint-3 --home $RELAYER_HOME >/dev/null 2>&1
 sleep 5
-rly tx raw update-client $OSMOSIS_CHAIN_ID $LUM_CHAIN_ID 07-tendermint-3 --home $RELAYER_HOME
+rly tx raw update-client $OSMOSIS_CHAIN_ID $LUM_CHAIN_ID 07-tendermint-3 --home $RELAYER_HOME >/dev/null 2>&1
 
 echo '[INFO] Running gov proposal on Osmosis to revive Lum <> Osmosis relayer...'
-osmosisd tx gov submit-proposal update-client 07-tendermint-2 07-tendermint-3 --deposit 1000uosmo --title "update" --description "upt clt" --from $IBC_KEY --home $OSMOSISD_HOME --keyring-backend test --broadcast-mode block --chain-id $OSMOSIS_CHAIN_ID --node $OSMOSIS_RPC --yes
-osmosisd tx gov vote 1 yes --from $IBC_KEY --home $OSMOSISD_HOME --keyring-backend test --broadcast-mode block --chain-id $OSMOSIS_CHAIN_ID --node $OSMOSIS_RPC --yes
+osmosisd tx gov submit-proposal update-client 07-tendermint-2 07-tendermint-3 --deposit 1000uosmo --title "update" --description "upt clt" --from $IBC_KEY --home $OSMOSISD_HOME --keyring-backend test --broadcast-mode block --chain-id $OSMOSIS_CHAIN_ID --node $OSMOSIS_RPC --yes >/dev/null 2>&1
+osmosisd tx gov vote 1 yes --from $IBC_KEY --home $OSMOSISD_HOME --keyring-backend test --broadcast-mode block --chain-id $OSMOSIS_CHAIN_ID --node $OSMOSIS_RPC --yes >/dev/null 2>&1
+
+echo '[INFO] Waiting '$GOV_VOTE_DURATION's for the proposal to pass...'
 sleep $GOV_VOTE_DURATION
 
 echo '[INFO] Updating substitute client...'
