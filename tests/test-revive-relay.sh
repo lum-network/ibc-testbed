@@ -1,5 +1,7 @@
 ##
 ## Test suite
+## Will make the Lum <> Osmosis IBC client expire and run a gov prop
+## to revive this client
 ##
 
 . ./.env

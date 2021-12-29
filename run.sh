@@ -7,6 +7,11 @@
 
 . ./.env
 
+if [ $# -le 0 ]; then
+    echo '$> sh run.sh [test-name]'
+    exit 1
+fi
+
 if sh scripts/test-before.sh; then
     echo '[INFO][run] Before test preparation success'
 else
@@ -15,7 +20,7 @@ else
     exit 1
 fi
 
-if sh test.sh; then
+if sh "tests/"$1".sh"; then
     echo '[INFO][run] Test suite succeeded'
 else
     echo "[ERROR][run] Test suite failed"

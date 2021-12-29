@@ -32,15 +32,3 @@ This script must only be run once.
 ```sh
 sh ibc-testbed/install.sh
 ```
-
-## Run the test suite
-
-This script runs the full test suite:
-- Init networks & relayer
-- Start networks & relayer
-- [WIP/TODO]
-- Stop networks & relayer
-
-WIP/TODO:
-- IBC channel freeze + revive using proposal
-- IBC transfer test pre and post proposal
