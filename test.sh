@@ -80,13 +80,9 @@ else
 fi
 
 echo '[INFO] Waiting for the Lum <> Osmosis client to expire...'
-sleep 60
 rly tx update-clients ki-osmosis --home $RELAYER_HOME
 rly tx update-clients cosmos-osmosis --home $RELAYER_HOME
-sleep 60
-rly tx update-clients ki-osmosis --home $RELAYER_HOME
-rly tx update-clients cosmos-osmosis --home $RELAYER_HOME
-sleep 60
+sleep 300
 rly tx update-clients ki-osmosis --home $RELAYER_HOME
 rly tx update-clients cosmos-osmosis --home $RELAYER_HOME
 
