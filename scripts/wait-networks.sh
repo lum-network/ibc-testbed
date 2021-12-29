@@ -2,7 +2,7 @@
 ## Wait for networks to be up and running by querying block 1
 ##
 
-. .env
+. ./.env
 
 i=60
 while [ $i -ge 0 ]; do

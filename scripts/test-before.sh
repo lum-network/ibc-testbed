@@ -2,7 +2,7 @@
 ## To run before the test suite in order to prepare everything
 ##
 
-. .env
+. ./.env
 
 echo '[INFO] Initializing networks...'
 if sh scripts/init.sh >/dev/null 2>&1; then

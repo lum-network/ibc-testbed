@@ -5,7 +5,7 @@
 ## - clean up test env
 ##
 
-. .env
+. ./.env
 
 if sh scripts/test-before.sh; then
     echo '[INFO][run] Before test preparation success'

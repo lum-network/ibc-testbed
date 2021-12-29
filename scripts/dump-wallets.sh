@@ -2,7 +2,7 @@
 ## Debug - Dump test wallets
 ##
 
-. .env
+. ./.env
 
 echo '[DEBUG] Osmosis wallet (chain): $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test)'
 osmosisd query bank balances $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --node $OSMOSIS_RPC

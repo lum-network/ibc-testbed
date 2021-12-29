@@ -2,7 +2,7 @@
 ## Init relayers wallets and paths
 ##
 
-. .env
+. ./.env
 
 echo '[INFO] Sending 1Mi OSMO to relayer...'
 osmosisd tx bank send $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) $(rly keys show $OSMOSIS_CHAIN_ID $RLY_KEY --home $RELAYER_HOME) 1000000000000uosmo --chain-id $OSMOSIS_CHAIN_ID --home $OSMOSISD_HOME --keyring-backend test --node $OSMOSIS_RPC --yes

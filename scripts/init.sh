@@ -2,7 +2,7 @@
 ## Initialize all networks
 ##
 
-. .env
+. ./.env
 
 echo '[INFO] Testbed directory is '$IBC_TESDBED_HOME
 

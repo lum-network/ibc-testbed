@@ -3,7 +3,7 @@
 ##
 
 echo '[INFO] Initializing environment...'
-. .env
+. ./.env
 
 echo '[INFO] Installing build essentials...'
 sudo apt-get install build-essential --yes
