@@ -38,8 +38,8 @@ else
     exit 1
 fi
 
-echo '[INFO] Waiting ~6min for the Lum <> Osmosis client to expire...'
-sleep 360
+echo '[INFO] Waiting 5min for the Lum <> Osmosis client to expire...'
+sleep 300
 
 echo '[INFO] Transferring coins from Lum to Osmosis (should NOT work)...'
 if rly tx transfer $LUM_CHAIN_ID $OSMOSIS_CHAIN_ID 1ulum $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
@@ -66,11 +66,11 @@ else
 fi
 
 echo '[INFO] Relay packets between Lum <> Osmosis should not work...'
-if rly tx relay-packets lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
-    echo "[ERROR] Relaying has been accepted but should not have been"
+if rly tx raw update-client $OSMOSIS_CHAIN_ID $LUM_CHAIN_ID 07-tendermint-2 --home $RELAYER_HOME >/dev/null 2>&1; then
+    echo "[ERROR] Relaying is supposedly working but should not be"
     exit 1
 else
-    echo "[INFO] Relaying rejected as expected)"
+    echo "[INFO] Relaying not working as expected"
 fi
 
 echo '[INFO] Relay packets manually...'
