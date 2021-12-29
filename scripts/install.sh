@@ -12,6 +12,12 @@ echo '[INFO] Installing go v1.17.2...'
 wget -q -O - https://git.io/vQhTU | bash -s -- --version 1.17.2
 
 ##
+## Preparing tmp directory
+##
+mkdir ./tmp
+cd ./tmp
+
+##
 ## Install IBC enabled binaries
 ##
 
@@ -49,10 +55,15 @@ cd ..
 ##
 
 echo '[INFO] Installing Go Relayer...'
-git clone https://github.com/cosmos/relayer.git
+git clone https://github.com/lum-network/relayer.git
 cd relayer
-git checkout v1.0.0
+git checkout main
 make install
+cd ..
+
+##
+## Leaving tmp directory
+##
 cd ..
 
 ##
