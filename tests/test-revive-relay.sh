@@ -14,48 +14,42 @@ request_transfers() {
     if rly tx transfer $LUM_CHAIN_ID $OSMOSIS_CHAIN_ID 1ulum $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
         echo "[INFO] Transaction accepted"
     else
-        echo "[ERROR] Transaction rejected"
-        exit 1
+        echo "[INFO] Transaction rejected"
     fi
 
     echo '[INFO] Transferring coins from Ki to Osmosis...'
     if rly tx transfer $KI_CHAIN_ID $OSMOSIS_CHAIN_ID 1uxki $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path ki-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
         echo "[INFO] Transaction accepted"
     else
-        echo "[ERROR] Transaction rejected"
-        exit 1
+        echo "[INFO] Transaction rejected"
     fi
 
     echo '[INFO] Transferring coins from Cosmos to Osmosis...'
     if rly tx transfer $COSMOS_CHAIN_ID $OSMOSIS_CHAIN_ID 1uatom $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --path cosmos-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
         echo "[INFO] Transaction accepted"
     else
-        echo "[ERROR] Transaction rejected"
-        exit 1
+        echo "[INFO] Transaction rejected"
     fi
 
     echo '[INFO] Transferring coins from Osmosis to Lum...'
     if rly tx transfer $OSMOSIS_CHAIN_ID $LUM_CHAIN_ID 1uosmo $(lumd keys show $IBC_KEY -a --home $LUMD_HOME --keyring-backend test) --path lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
         echo "[INFO] Transaction accepted"
     else
-        echo "[ERROR] Transaction rejected"
-        exit 1
+        echo "[INFO] Transaction rejected"
     fi
 
     echo '[INFO] Transferring coins from Osmosis to Ki...'
     if rly tx transfer $OSMOSIS_CHAIN_ID $KI_CHAIN_ID 1uosmo $(kid keys show $IBC_KEY -a --home $KID_HOME --keyring-backend test) --path ki-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
         echo "[INFO] Transaction accepted"
     else
-        echo "[ERROR] Transaction rejected"
-        exit 1
+        echo "[INFO] Transaction rejected"
     fi
 
     echo '[INFO] Transferring coins from Osmosis to Cosmos...'
     if rly tx transfer $OSMOSIS_CHAIN_ID $COSMOS_CHAIN_ID 1uosmo $(gaiad keys show $IBC_KEY -a --home $GAIAD_HOME --keyring-backend test) --path cosmos-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
         echo "[INFO] Transaction accepted"
     else
-        echo "[ERROR] Transaction rejected"
-        exit 1
+        echo "[INFO] Transaction rejected"
     fi
 }
 
