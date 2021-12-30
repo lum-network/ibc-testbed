@@ -117,6 +117,18 @@ Since the feature is experimental (and has apparently never been tested in produ
 -   Governance proposal of type `ibc.core.client.v1.ClientUpdateProposal` can be voted YES without impacting other clients
 -   Once governance proposal is passed all clients work including the expired clients
 
+This test basically does:
+
+-   Send coins from and to Osmosis for all networks
+-   Relay (should work)
+-   Wait for Lum <> Osmosis client to expire
+-   Send coins from and to Osmosis for all networks
+-   Relay (should work except for Lum <> Osmosis)
+-   Revive the client using gov proposal on Osmosis
+-   Send coins from and to Osmosis for all networks
+-   Relay (should work)
+-   Dump wallets for manual verification (debug / double check)
+
 #### Run
 
 ```sh
