@@ -104,7 +104,7 @@ echo '[INFO] Waiting '$GOV_VOTE_DURATION's for the proposal to pass...'
 sleep $GOV_VOTE_DURATION
 
 echo '[INFO] Updating substitute client...'
-rly tx raw update-client $OSMOSIS_CHAIN_ID $LUM_CHAIN_ID 07-tendermint-3 --home $RELAYER_HOME
+rly tx raw update-client $OSMOSIS_CHAIN_ID $LUM_CHAIN_ID 07-tendermint-3 --home $RELAYER_HOME >/dev/null 2>&1
 
 # Trigger all transfers txs again
 request_transfers
@@ -121,5 +121,6 @@ fi
 # End test manual verification
 # Each IBC transfer should have passed
 # Even the ones done while Lum <> Osmosis relayer was out of service since we revived the relayer
+# Depending on some unpredictable behaviour the Lum wallet might have only 2 (in case the tx was rejected which should be logged as well)
 echo '[DEBUG] Dumping test wallets:\n - Osmosis wallet should have 3 ibc denom with 3 coins each\n - Each network should have an extra denom with 3 coins (uosmo IBC)'
 sh scripts/dump-wallets.sh
