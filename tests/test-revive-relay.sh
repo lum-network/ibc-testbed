@@ -35,7 +35,7 @@ request_transfers() {
     fi
 
     echo '[INFO] Transferring coins from Osmosis to Lum...'
-    if rly tx transfer $OSMOSIS_CHAIN_ID $LUM_CHAIN_ID 1ulum $(lumd keys show $IBC_KEY -a --home $LUMD_HOME --keyring-backend test) --path lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
+    if rly tx transfer $OSMOSIS_CHAIN_ID $LUM_CHAIN_ID 1uosmo $(lumd keys show $IBC_KEY -a --home $LUMD_HOME --keyring-backend test) --path lum-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
         echo "[INFO] Transaction accepted"
     else
         echo "[ERROR] Transaction rejected"
@@ -43,7 +43,7 @@ request_transfers() {
     fi
 
     echo '[INFO] Transferring coins from Osmosis to Ki...'
-    if rly tx transfer $OSMOSIS_CHAIN_ID $KI_CHAIN_ID 1ulum $(kid keys show $IBC_KEY -a --home $KID_HOME --keyring-backend test) --path ki-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
+    if rly tx transfer $OSMOSIS_CHAIN_ID $KI_CHAIN_ID 1uosmo $(kid keys show $IBC_KEY -a --home $KID_HOME --keyring-backend test) --path ki-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
         echo "[INFO] Transaction accepted"
     else
         echo "[ERROR] Transaction rejected"
@@ -51,7 +51,7 @@ request_transfers() {
     fi
 
     echo '[INFO] Transferring coins from Osmosis to Cosmos...'
-    if rly tx transfer $OSMOSIS_CHAIN_ID $COSMOS_CHAIN_ID 1ulum $(gaiad keys show $IBC_KEY -a --home $GAIAD_HOME --keyring-backend test) --path cosmos-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
+    if rly tx transfer $OSMOSIS_CHAIN_ID $COSMOS_CHAIN_ID 1uosmo $(gaiad keys show $IBC_KEY -a --home $GAIAD_HOME --keyring-backend test) --path cosmos-osmosis --home $RELAYER_HOME >/dev/null 2>&1; then
         echo "[INFO] Transaction accepted"
     else
         echo "[ERROR] Transaction rejected"
