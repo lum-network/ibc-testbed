@@ -141,109 +141,211 @@ sh run.sh test-revive-relay
     <summary>
         Click to expand to see full output
     </summary>
-    ```sh
+    
     [INFO] Initializing networks...
+
     [INFO] Network initialized with success
+
     [INFO] Starting networks daemons...
+
     [INFO] Waiting for networks to be up and running...
+
     [INFO] Networks are up and running
+
     [INFO] Initializing relayers (will take a while)...
+
     [INFO] Relayers initialization succeeded
+
     [INFO][run] Before test preparation success
+
     [INFO] Transferring coins from Lum to Osmosis...
+
     [INFO] Transaction accepted
+
     [INFO] Transferring coins from Ki to Osmosis...
+
     [INFO] Transaction accepted
+
     [INFO] Transferring coins from Cosmos to Osmosis...
+
     [INFO] Transaction accepted
+
     [INFO] Transferring coins from Osmosis to Lum...
+
     [INFO] Transaction accepted
+
     [INFO] Transferring coins from Osmosis to Ki...
+
     [INFO] Transaction accepted
+
     [INFO] Transferring coins from Osmosis to Cosmos...
+
     [INFO] Transaction accepted
+
     [INFO] Relay packets manually (all realyers should work)...
+
     [INFO] Relaying done
+
     [INFO] Waiting 5min for the Lum <> Osmosis client to expire...
+
     [INFO] Transferring coins from Lum to Osmosis...
+
     [INFO] Transaction accepted
+
     [INFO] Transferring coins from Ki to Osmosis...
+
     [INFO] Transaction accepted
+
     [INFO] Transferring coins from Cosmos to Osmosis...
+
     [INFO] Transaction accepted
+
     [INFO] Transferring coins from Osmosis to Lum...
+
     [INFO] Transaction rejected
+
     [INFO] Transferring coins from Osmosis to Ki...
+
     [INFO] Transaction accepted
+
     [INFO] Transferring coins from Osmosis to Cosmos...
+
     [INFO] Transaction accepted
+
     [INFO] Relay packets between Lum <> Osmosis (should not work)...
+
     [INFO] Relaying not working as expected
+
     [INFO] Relay packets between other networks (should work)...
+
     [INFO] Relaying done
+
     [INFO] Creating and updating new substitute client to replace the expired one...
+
     [INFO] Running gov proposal on Osmosis to revive Lum <> Osmosis relayer...
+
     [INFO] Waiting 60s for the proposal to pass...
+
     [INFO] Updating substitute client...
+
     [INFO] Transferring coins from Lum to Osmosis...
+
     [INFO] Transaction accepted
+
     [INFO] Transferring coins from Ki to Osmosis...
+
     [INFO] Transaction accepted
+
     [INFO] Transferring coins from Cosmos to Osmosis...
+
     [INFO] Transaction accepted
+
     [INFO] Transferring coins from Osmosis to Lum...
+
     [INFO] Transaction accepted
+
     [INFO] Transferring coins from Osmosis to Ki...
+
     [INFO] Transaction accepted
+
     [INFO] Transferring coins from Osmosis to Cosmos...
+
     [INFO] Transaction accepted
+
     [INFO] Relay packets manually...
+
     [INFO] Relaying done
+
     [DEBUG] Dumping test wallets:
+
     - Osmosis wallet should have 3 ibc denom with 3 coins each
+
     - Each network should have an extra denom with 3 coins (uosmo IBC)
+
     [DEBUG] Osmosis wallet (chain): osmo1prs4r3kf940m8czmyx20h8t2f69z7mstrjuv4y
+
     balances:
+
     - amount: "3"
+
     denom: ibc/09AB36F70D97B9D4C43168A3389CBDA70CAEA7D3A5A9A2D57C7E1E10F2BDB213
+
     - amount: "3"
+
     denom: ibc/C4CFF46FD6DE35CA4CF4CE031E643C8FDC9BA4B99AE598E9B0ED98FE3A2319F9
+
     - amount: "3"
+
     denom: ibc/D140FF970C4256ADD8CF74815DA15279ECD10C7DD588FF41165F423C53BE256C
+
     - amount: "998000000000000"
+
     denom: uosmo
+
     pagination:
+
     next_key: null
+
     total: "0"
+
     [DEBUG] Lum wallet (chain): lum1xs87ptzrjzq6fgye8gn9es5hlma4jzxywhtw75
+
     balances:
+
     - amount: "2"
+
     denom: ibc/ED07A3391A112B175915CD8FAF43A2DA8E4790EDE12566649D0C2F97716B8518
+
     - amount: "998000000000000"
+
     denom: ulum
+
     pagination:
+
     next_key: null
+
     total: "0"
+
     [DEBUG] Ki wallet (chain): ki155htzc84xe4qlc033t60dfknw8rvyas4xe748s
+
     balances:
+
     - amount: "3"
+
     denom: ibc/ED07A3391A112B175915CD8FAF43A2DA8E4790EDE12566649D0C2F97716B8518
+
     - amount: "998000000000000"
+
     denom: uxki
+
     pagination:
+
     next_key: null
+
     total: "0"
+
     [DEBUG] Cosmos wallet (chain): cosmos1s5y2al7gu669hud6yq6hgdvl670kagma8nths2
+
     balances:
+
     - amount: "3"
+
     denom: ibc/ED07A3391A112B175915CD8FAF43A2DA8E4790EDE12566649D0C2F97716B8518
+
     - amount: "998000000000000"
+
     denom: uatom
+
     pagination:
+
     next_key: null
+
     total: "0"
+
     [INFO][run] Test suite succeeded
+
     [INFO] Stopping networks daemons...
+
     [INFO][run] After test clean up success
-    ```
+
 </details>
