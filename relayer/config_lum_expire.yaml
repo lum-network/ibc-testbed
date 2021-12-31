@@ -9,7 +9,7 @@ chains:
     account-prefix: lum
     gas-adjustment: 2.0
     gas-prices: 0.00001ulum
-    trusting-period: 36000s
+    trusting-period: 300s
   - key: rly-testbed-key
     chain-id: osmosis-ibctest-1
     rpc-addr: http://127.0.0.1:36657
