@@ -47,7 +47,7 @@ gaiad collect-gentxs --home $GAIAD_HOME
 
 echo '[INFO] Initializing relayer confg and wallets...'
 rly config init --home $RELAYER_HOME
-cp ./relayer/config.yaml $RELAYER_HOME/config/config.yaml
+cp ./relayer/$RELAYER_CONFIG_NAME $RELAYER_HOME/config/config.yaml
 rly keys add $OSMOSIS_CHAIN_ID $RLY_KEY --home $RELAYER_HOME
 rly keys add $LUM_CHAIN_ID $RLY_KEY --home $RELAYER_HOME
 rly keys add $KI_CHAIN_ID $RLY_KEY --home $RELAYER_HOME
